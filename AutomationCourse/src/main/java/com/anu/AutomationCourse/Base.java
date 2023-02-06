@@ -8,7 +8,6 @@ public class Base
 {
 	public WebDriver driver;
 
-	
 	public  void initializeBrowser()
 	{
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\eclipse-workspace\\AutomationCourse\\src\\main\\java\\Resources\\chromedriver.exe");//driver initialization
