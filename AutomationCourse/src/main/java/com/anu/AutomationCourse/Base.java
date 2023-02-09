@@ -15,12 +15,79 @@ public class Base
 		driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/");
 	}
-	public static void main(String[] args) 
+	
+	public void getTitleCommands()
 	{
-		Base base = new Base();
-		base.initializeBrowser();
+	String actualTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";			
+	String title = driver.getTitle();
+	if(title.equals(actualTitle))
+	{
+		System.out.println("titles are equal");
+	}
+	else
+	{
+		System.out.println("titles are not equal");
 	}
 	
+	
+	}
+	
+	public void getUrlCommand()
+	{
+		String url = driver.getCurrentUrl();
+		String actualUrl = "https://www.amazon.in/";
+		if(url.equals(actualUrl))
+		{
+			System.out.println("urls are equal");
+		}
+		else
+		{
+			System.out.println("urls are not equal");
+		}
+	}
+	
+	public void getpageSourceCommand()
+	{
+	String pageSource =	driver.getPageSource();
+	String actualPageSource = "<!-- sp:feature:csm:head-open-part1 -->";
+	if(pageSource.contains(actualPageSource))
+	{
+		System.out.println("page sources are equal");
+	}
+	else
+	{
+		System.out.println("page sources are not equal");
+	}
+	}
+	
+	public void quit()
+	{
+		driver.quit();
+	}
+	
+	public void afterTest()
+	{
+		driver.close();
+	}
+	
+	public void navigateCommands()
+	{
+		driver.navigate().to("https://www.flipkart.com/");
+		driver.navigate().back();
+		driver.navigate().forward();
+		driver.navigate().refresh();
+	}
+	
+	  public static void main(String[] args) 
 
+	{ Base base = new Base();
+	  base.initializeBrowser(); 
+	  base.getTitleCommands();
+	  base.getUrlCommand();
+	  base.getpageSourceCommand();
+	  base.navigateCommands();
+	  base.afterTest();
+	  //base.quit(); }
+	}
 }
 
